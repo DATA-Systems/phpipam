@@ -555,7 +555,7 @@ td.info2 {
 }
 .hero-unit,
 .hero-unit a {
-	font-family: Georgia,Times,'Times New Roman',serif;
+    font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 	font-size: 36px;
 
 	color: white;
@@ -2712,4 +2712,12 @@ div.fixed-table-container {
 }
 .pagination-detail {
 	color: #999;
+}
+/* Custom CSS - 20190925jt */
+.table > tbody > tr > td {
+    padding: 0;
+}
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 4px;
 }

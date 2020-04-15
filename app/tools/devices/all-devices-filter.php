@@ -114,17 +114,19 @@ print "<div class='btn-group' style='margin-bottom:7px;'>";
 	}
 
 	// filters - section
-	print "<div class='btn-group'>";
-	print "	<button class='btn btn-sm btn-default dropdown-toggle' type='button' id='dropdownMenua3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>"._("Section")." <span class='caret'></span></button>";
-	print " <ul class='dropdown-menu' aria-labelledby='dropdownMenua3'>";
-	print "   <li><a href='".create_link("tools","devices")."'>"._("All sections")."</a></li>";
-	print "		<li role='separator' class='divider'></li>";
-	foreach ($sections as $s) {
-		$selected = $s->name==$_GET['sPage'] ? "class='active'" : "";
-		print "   <li $selected><a href='".create_link("tools","devices","section", $s->name)."'>".$s->name."</a></li>";
-	}
-	print " </ul>";
-	print "</div>";
+    if ($User->is_admin(false)) {
+        print "<div class='btn-group'>";
+        print "	<button class='btn btn-sm btn-default dropdown-toggle' type='button' id='dropdownMenua3' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>"._("Section")." <span class='caret'></span></button>";
+        print " <ul class='dropdown-menu' aria-labelledby='dropdownMenua3'>";
+        print "   <li><a href='".create_link("tools","devices")."'>"._("All sections")."</a></li>";
+        print "		<li role='separator' class='divider'></li>";
+        foreach ($sections as $s) {
+            $selected = $s->name==$_GET['sPage'] ? "class='active'" : "";
+            print "   <li $selected><a href='".create_link("tools","devices","section", $s->name)."'>".$s->name."</a></li>";
+        }
+        print " </ul>";
+        print "</div>";
+    }
 
 	// Clear
 	if (isset($_GET['subnetId']) && isset($_GET['sPage'])) {

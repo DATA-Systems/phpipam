@@ -105,20 +105,22 @@ if($_GET['subnetId']!=0 && sizeof($device)>0) {
     	print "	<td colspan='2'><hr></td>";
     	print "</tr>";
 
-    	print '<tr>';
-    	print "	<th>". _('Sections').':</th>';
-    	print "	<td>";
-    	if(strlen($device['hostname'])>0) {
-    		$section_ids = explode(";", $device['sections']);
-    		foreach($section_ids as $k=>$id) {
-    			$section = $Sections->fetch_section(null, $id);
-    			$section_print[$k]  = "&middot; ".$section->name;
-    			$section_print[$k] .= strlen($section->description)>0 ? " <span class='text-muted'>($section->description)</span>" : "";
-    		}
-    		print implode("<br>", $section_print);
-    	}
-    	print "</td>";
-    	print "</tr>";
+        if($User->is_admin(false)) {
+            print '<tr>';
+            print "	<th>". _('Sections').':</th>';
+            print "	<td>";
+            if(strlen($device['hostname'])>0) {
+                $section_ids = explode(";", $device['sections']);
+                foreach($section_ids as $k=>$id) {
+                    $section = $Sections->fetch_section(null, $id);
+                    $section_print[$k]  = "&middot; ".$section->name;
+                    $section_print[$k] .= strlen($section->description)>0 ? " <span class='text-muted'>($section->description)</span>" : "";
+                }
+                print implode("<br>", $section_print);
+            }
+            print "</td>";
+            print "</tr>";
+        }
 
 
         if($User->settings->enableSNMP=="1") {
