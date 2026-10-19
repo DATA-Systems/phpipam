@@ -239,6 +239,8 @@ $("input[name='subnet']").change(function() {
             	<?php
             	if($sections!==false) {
 	            	foreach($sections as $section) {
+                        // permission-check 20261019jt
+                        if($Sections->check_permission ($User->user, $section->id) != 3) { continue; }
 	            		/* selected? */
 	            		if($POST->sectionId == $section->id)  { print '<option value="'. $section->id .'" selected>'. $section->name .'</option>'. "\n"; }
 	            		else 									 { print '<option value="'. $section->id .'">'. $section->name .'</option>'. "\n"; }

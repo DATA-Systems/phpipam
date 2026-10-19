@@ -558,7 +558,7 @@ td.info2 {
 }
 .hero-unit,
 .hero-unit a {
-	font-family: Georgia,Times,'Times New Roman',serif;
+	font-family: "Segoe UI", SegoeUI, "Segoe WP", "Helvetica Neue", Helvetica, Tahoma, Arial, sans-serif;
 	font-size: 36px;
 
 	color: white;
@@ -2858,4 +2858,15 @@ div.fixed-table-container {
 
 .markdown-body li+li {
 	margin-top: .25em
+}
+
+/* Custom CSS - 20190925jt
+ * updated    - 20261019jt */
+#subnetsLeft h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#subnetsLeft td {
+    padding-top: 0;
+    padding-bottom: 2px;
 }
